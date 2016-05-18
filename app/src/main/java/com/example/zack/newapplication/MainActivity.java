@@ -7,7 +7,7 @@ import android.widget.EditText;
 import com.firebase.client.Firebase;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String FIREBASE_URl = "https://dazzling-torch-8082.firebaseio.com/"
+    private static final String FIREBASE_URl = "https://dazzling-torch-8082.firebaseio.com/";
 
     private Firebase firebaseRef;
     @Override
