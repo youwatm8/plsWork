@@ -7,7 +7,7 @@ public class ChatMessage {
     private String author;
     private String message;
 
-    public ChatMessage(){
+    public ChatMessage(String message){
 
     }
 
