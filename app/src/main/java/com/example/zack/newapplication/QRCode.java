@@ -1,6 +1,6 @@
 package com.example.zack.newapplication;
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import com.firebase.client.Firebase;
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -28,8 +28,9 @@ public class QRCode extends Activity implements OnClickListener {
         ref = new Firebase("https://dazzling-torch-8082.firebaseio.com/");
         setContentView(R.layout.activity_qrcode);
         scanBtn = (Button)findViewById(R.id.scan_button);
-
         scanBtn.setOnClickListener(this);
+        getActionBar().setHomeButtonEnabled(true);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void onClick(View v){

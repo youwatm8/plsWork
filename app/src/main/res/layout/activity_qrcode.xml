@@ -9,8 +9,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.zack.newapplication.QRCode">
     <Button android:id="@+id/scan_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="250dp"
         android:layout_centerHorizontal="true"
-        android:text="@string/pic" />
+        android:text="@string/pic"
+        android:textSize="60sp"
+        />
 </RelativeLayout>
