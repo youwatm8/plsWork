@@ -1,6 +1,6 @@
 package com.example.zack.newapplication;
 
-
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.firebase.client.Firebase;
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -18,6 +18,7 @@ import android.widget.Toast;
 public class QRCode extends Activity implements OnClickListener {
     private Button scanBtn;
     private Firebase ref;
+    private Button reset;
 
 
 
@@ -28,9 +29,10 @@ public class QRCode extends Activity implements OnClickListener {
         ref = new Firebase("https://dazzling-torch-8082.firebaseio.com/");
         setContentView(R.layout.activity_qrcode);
         scanBtn = (Button)findViewById(R.id.scan_button);
+
         scanBtn.setOnClickListener(this);
-        getActionBar().setHomeButtonEnabled(true);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        reset = (Button)findViewById(R.id.reset);
+        reset.setOnClickListener(this);
     }
 
     public void onClick(View v){
@@ -41,6 +43,10 @@ public class QRCode extends Activity implements OnClickListener {
 
             IntentIntegrator scanIntegrator = new IntentIntegrator(this);
             scanIntegrator.initiateScan();
+        }
+        else if(v.getId()==R.id.reset){
+            Firebase resetRef = ref.child("Classes").child("Hamby");
+            resetRef.child("Zack").setValue("Absent");
         }
     }
     void editData(String name){
@@ -55,6 +61,7 @@ public class QRCode extends Activity implements OnClickListener {
 //we have a result
             String scanContent = scanningResult.getContents();
             String scanFormat = scanningResult.getFormatName();
+            editData(scanContent);
         } else{
                 Toast toast = Toast.makeText(getApplicationContext(),
                         "No scan data received!", Toast.LENGTH_SHORT);
