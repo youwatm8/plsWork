@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.firebase.client.Firebase;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
     private static final String FIREBASE_URl = "https://dazzling-torch-8082.firebaseio.com/";
 
@@ -45,8 +47,10 @@ public class MainActivity extends AppCompatActivity {
         EditText textInput = (EditText) findViewById(R.id.messageText);
         String message = textInput.getText().toString();
         if(!message.equals("")){
-            ChatMessage cMessage = new ChatMessage(message);
-            firebaseRef.push().setValue(cMessage);
+            String author = "Admin";
+            ChatMessage cMessage = new ChatMessage(author, message);
+            Firebase messagesRef = firebaseRef.child("Messages");
+            messagesRef.push().setValue(cMessage);
             textInput.setText("");
         }
     }

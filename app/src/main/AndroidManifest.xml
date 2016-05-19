@@ -11,8 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".QRCode">
+        <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".QRCode"></activity>
+        <activity android:name=".landing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
